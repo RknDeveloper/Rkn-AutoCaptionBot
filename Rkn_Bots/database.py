@@ -15,8 +15,11 @@ users = db.users
 #insert user data
 async def insert(user_id):
     user_det = {"_id": user_id}
-    await users.insert_one(user_det)
-    
+    try:
+        await users.insert_one(user_det)
+    except:
+        pass
+        
 # Total User
 async def total_user():
     user = await users.count_documents({})
