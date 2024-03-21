@@ -12,17 +12,22 @@ db = client.captions_with_chnl
 chnl_ids = db.chnl_ids
 users = db.users
 
+#insert user data
+async def insert(user_id):
+    user_det = {"_id": user_id}
+    await users.insert_one(user_det)
+    
 # Total User
 async def total_user():
-    user = users.count_documents({})
+    user = await users.count_documents({})
     return user
 
 async def getid():
-    all_users = users.find({})
+    all_users = await users.find({})
     return all_users
 
 async def delete(id):
-    users.delete_one(id)
+    await users.delete_one(id)
                      
 async def addCap(chnl_id, caption):
     dets = {"chnl_id": chnl_id, "caption": caption}
