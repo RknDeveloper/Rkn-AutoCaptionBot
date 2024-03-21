@@ -4,7 +4,7 @@
 # Telegram Channel @RknDeveloper & @Rkn_Bots
 # Developer @RknDeveloperr
 
-from pyrogram import Client, filters, errors
+from pyrogram import Client, filters, errors, types
 from Config import Rkn_Bots
 import asyncio, re, time, sys
 from .database import *
@@ -62,8 +62,14 @@ async def start_cmd(bot, message):
     user_det = {"_id": user_id)
     await users.insert_one(user_det)
     await message.reply(
-        f"<b>Hey, {message.from_user.mention}\n\nI'm an auto-caption bot. I automatically edit captions for videos, audio files, and documents posted on channels.\n\nuse <code>/set_caption</code> to set caption\nUse<code>/delcaption</code> To delete caption and set caption to default.\n\nNote:All commands works on channels only</b>"
-    )
+        f"<b>Hey, {message.from_user.mention}\n\nI'm an auto-caption bot. I automatically edit captions for videos, audio files, and documents posted on channels.\n\nuse <code>/set_caption</code> to set caption\nUse<code>/delcaption</code> To delete caption and set caption to default.\n\nNote:All commands works on channels only</b>",
+        reply_markup=types.InlineKeyboardMarkup([ 
+            types.InlineKeyboardButton('Uᴩᴅᴀᴛᴇꜱ', url='https://t.me/RknDeveloper'),
+            types.InlineKeyboardButton('Sᴜᴩᴩᴏʀᴛ', url='https://t.me/RknDeveloperSupport')
+            ], [
+            types.InlineKeyboardButton('🔥 Source Code 🔥', url='https://github.com/RknDeveloper/Rkn-AutoCaptionBot')
+    ]]))
+    
 
 
 @Client.on_message(filters.command("set_caption") & filters.channel)
