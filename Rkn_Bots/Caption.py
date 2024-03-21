@@ -7,7 +7,7 @@
 from pyrogram import Client, filters, errors, types
 from config import Rkn_Bots
 import asyncio, re, time, sys
-from .database import *
+from .database import total_user, getid, delete, addCap, updateCap, insert
 from pyrogram.errors import FloodWait
 
 @Client.on_message(filters.private & filters.user(Rkn_Bots.ADMIN)  & filters.command(["rknusers"]))
@@ -20,27 +20,27 @@ async def all_db_users_here(client,message):
 async def broadcast(bot, message):
     if (message.reply_to_message):
         rkn = await message.reply_text("Geting All ids from database..\n Please wait")
-        ids = await getid()
+        all_users = await getid()
         tot = await total_user()
         success = 0
         failed = 0
         deactivated = 0
         blocked = 0
         await rkn.edit(f"ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ...")
-        for id in ids:
+        async for user in all_users:
             try:
                 time.sleep(1)
-                await message.reply_to_message.copy(id)
+                await message.reply_to_message.copy(user['_id'])
                 success += 1
             except errors.InputUserDeactivated:
                 deactivated +=1
-                await delete({"_id": id})
+                await delete({"_id": user['_id']})
             except errors.UserIsBlocked:
                 blocked +=1
-                await delete({"_id": id})
+                await delete({"_id": user['_id']})
             except Exception as e:
                 failed += 1
-                await delete({"_id": bot_id})
+                await delete({"_id": user['_id']})
                 pass
             try:
                 await rkn.edit(f"<u>ʙʀᴏᴀᴅᴄᴀsᴛ ᴘʀᴏᴄᴇssɪɴɢ</u>\n\n• ᴛᴏᴛᴀʟ ᴜsᴇʀs: {tot}\n• sᴜᴄᴄᴇssғᴜʟ: {success}\n• ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs: {blocked}\n• ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛs: {deactivated}\n• ᴜɴsᴜᴄᴄᴇssғᴜʟ: {failed}")
