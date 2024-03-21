@@ -8,7 +8,7 @@ import motor.motor_asyncio
 from config import Rkn_Bots
 
 client = motor.motor_asyncio.AsyncIOMotorClient(Rkn_Bots.DB_URL)
-db = client.captions_with_chnl
+db = client[Rkn_Bots.DB_NAME]
 chnl_ids = db.chnl_ids
 users = db.users
 
