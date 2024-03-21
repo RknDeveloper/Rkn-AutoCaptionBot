@@ -38,8 +38,12 @@ class Rkn_AutoCaptionBot(Client):
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, Rkn_Bots.PORT).start()
         print(f"{me.first_name} Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️")
-        await self.send_message(Rkn_Bots.ADMIN, f"**__{me.first_name}  Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️__**")
-
+        for id in Rkn_Bots.ADMIN:
+            try:
+                await self.send_message(id, f"**__{me.first_name}  Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️__**")
+            except:
+                pass
+        
     async def stop(self, *args):
         await super().stop()
         print("Bot Stopped 🙄")
