@@ -19,7 +19,7 @@ class Rkn_Bots(object):
     FORCE_SUB = os.environ.get("FORCE_SUB", "") 
     
     # database config
-    DB_NAME = os.environ.get("DB_NAME","")     
+    DB_NAME = os.environ.get("DB_NAME", "AutoCaption_V05_Bot")     
     DB_URL = os.environ.get("DB_URL", "")
 
     #caption
