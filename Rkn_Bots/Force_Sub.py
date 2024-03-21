@@ -6,8 +6,7 @@ from .database import *
 
 async def not_subscribed(_, client, message):
     user_id = int(message.from_user.id)
-    user_det = {"_id": user_id}
-    await users.insert_one(user_det)
+    await insert(user_id)
     if not Config.FORCE_SUB:
         return False
     try:             
