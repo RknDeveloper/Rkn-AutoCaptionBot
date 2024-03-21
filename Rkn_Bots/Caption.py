@@ -7,7 +7,7 @@
 from pyrogram import Client, filters, errors, types
 from config import Rkn_Bots
 import asyncio, re, time, sys
-from .database import total_user, getid, delete, addCap, updateCap, insert
+from .database import total_user, getid, delete, addCap, updateCap, insert, chnl_ids
 from pyrogram.errors import FloodWait
 
 @Client.on_message(filters.private & filters.user(Rkn_Bots.ADMIN)  & filters.command(["rknusers"]))
