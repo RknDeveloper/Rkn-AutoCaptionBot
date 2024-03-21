@@ -5,7 +5,7 @@
 # Developer @RknDeveloperr
 
 from pyrogram import Client, filters, errors, types
-from Config import Rkn_Bots
+from config import Rkn_Bots
 import asyncio, re, time, sys
 from .database import *
 from pyrogram.errors import FloodWait
