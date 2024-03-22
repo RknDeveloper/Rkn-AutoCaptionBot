@@ -4,7 +4,7 @@
 # Telegram Channel @RknDeveloper & @Rkn_Bots
 # Developer @RknDeveloperr
 
-from pyrogram import Client, filters, errors, types
+from pyrogram import Client, filters, errors, types, enums
 from config import Rkn_Bots
 import asyncio, re, time, sys
 from .database import total_user, getid, delete, addCap, updateCap, insert, chnl_ids
@@ -107,7 +107,7 @@ async def delCap(_, msg):
 async def auto_edit_caption(bot, message):
     chnl_id = message.chat.id
     if message.media:
-        for file_type in ("video", "audio", "document", "voice"):
+        for file_type in (enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT, enums.MessageMediaType.VOICE):
             obj = getattr(message, file_type, None)
             if obj and hasattr(obj, "file_name"):
                 file_name = obj.file_name
