@@ -6,13 +6,13 @@
 
 from aiohttp import web
 from pyrogram import Client
-from config import Rkn_Bots
+from config import Rkn_Bots, Rkn_Bots as Rkn_Botz
 from Rkn_Bots.web_support import web_server
 
 class Rkn_AutoCaptionBot(Client):
     def __init__(self):
         super().__init__(
-            name="Rkn-AutoCaptionBot",
+            name="Rkn-Advance-Caption-Bot",
             api_id=Rkn_Bots.API_ID,
             api_hash=Rkn_Bots.API_HASH,
             bot_token=Rkn_Bots.BOT_TOKEN,
@@ -24,6 +24,7 @@ class Rkn_AutoCaptionBot(Client):
     async def start(self):
         await super().start()
         me = await self.get_me()
+        self.uptime = Rkn_Botz.BOT_UPTIME
         self.force_channel = Rkn_Bots.FORCE_SUB
         if Rkn_Bots.FORCE_SUB:
             try:
