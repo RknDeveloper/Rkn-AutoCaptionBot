@@ -41,7 +41,7 @@
 * Unlimited Channel Support.
 * Has a custom Start-up pic.
 * Force subscribe available.
-* Admin Commond Available.
+* Admin Command Available.
 * Deploy to Koyeb + Heroku + Railway + Render + Vps.
 * Developer Service 24x7. 🔥
 
@@ -53,11 +53,13 @@
 * `DB_URL`  - Mongo Database URL From https://cloud.mongodb.com
 * `DB_NAME`  - Your Database Name From Mongodb. 
 * `FORCE_SUB` - Your Force Sub Channel Username Without @
-* `DEF_CAP` - YOUR DEFAULT CAPTION USE {file_name} TO SHOW FILE NAME
+* `DEF_CAP` - Set Your Custom Caption (Without Using Any Commands) Exam.. `{filename}`
 
 ## Botfather Commands
 ```
 start - Bᴏᴛ Aʟɪᴠᴇ Cʜᴇᴄᴋɪɴɢ
+set_caption - To Set Your Custom Caption (This Commands Works On Channels Only)
+del_caption - To Delete Your Custom Caption (This Commands Works On Channels Only)
 restart - Tᴏ Rᴇsᴛᴀʀᴛ Tʜᴇ Bᴏᴛ (Aᴅᴍɪɴ ᴏɴʟʏ)
 status - ᴄʜᴇᴄᴋ ʙᴏᴛ sᴛᴀᴛᴜs (ᴀᴅᴍɪɴ ᴏɴʟʏ)
 broadcast - sᴇɴᴅ ᴍᴀssᴀɢᴇ ᴛᴏ ᴀʟʟ ᴜsᴇʀs (ᴀᴅᴍɪɴ ᴏɴʟʏ)
