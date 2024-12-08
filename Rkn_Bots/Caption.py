@@ -108,6 +108,19 @@ async def delCaption(_, msg):
         await rkn.delete()
         return
 
+# Extract Language 
+def extract_language(file_name):
+    language_pattern = r'\b(Hindi|English|Tamil|Bhojpuri|Nepali|Punjabi|Telugu|Malayalam|Kannada|Hin)\b'
+    languages = set(re.findall(language_pattern, file_name, re.IGNORECASE))
+    if not languages:
+        return "Hindi-English"
+    return ", ".join(sorted(languages, key=str.lower))
+
+# Extract Year
+def extract_year(file_name):
+    match = re.search(r'\b(19\d{2}|20\d{2})\b', file_name)
+    return match.group(1) if match else None
+	
 
 @Client.on_message(filters.channel)
 async def auto_edit_caption(bot, message):
@@ -123,13 +136,14 @@ async def auto_edit_caption(bot, message):
                     .replace(".", " ")
                 )
                 cap_dets = await chnl_ids.find_one({"chnl_id": chnl_id})
+                caption = message.caption if message.caption else file_name
                 try:
                     if cap_dets:
                         cap = cap_dets["caption"]
-                        replaced_caption = cap.format(file_name=file_name)
+                        replaced_caption = cap.format(file_name=file_name, caption=caption, language=extract_language(file_name), year=extract_year(file_name))
                         await message.edit(replaced_caption)
                     else:
-                        replaced_caption = Rkn_Bots.DEF_CAP.format(file_name=file_name)
+                        replaced_caption = Rkn_Bots.DEF_CAP.format(file_name=file_name, caption=caption, language=extract_language(file_name), year=extract_year(file_name))
                         await message.edit(replaced_caption)
                 except FloodWait as e:
                     await asyncio.sleep(e.x)
