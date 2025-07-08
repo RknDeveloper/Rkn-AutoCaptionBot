@@ -1,50 +1,59 @@
 {
-    "name": "Rkn-AutoCaptionBot",
-    "description": "Telegram Channel Auto Caption Bot ",
-    "logo": "https://telegra.ph/file/21a8e96b45cd6ac4d3da6.jpg",
-    "keywords": ["AutoCaptionBot", "Mongo DB"],    
-    "repository": "https://github.com/RknDeveloper/Rkn-AutoCaptionBot",
-    "env": {
-        "API_ID": {
-            "description": "Your APP ID From my.telegram.org ",
-            "value": ""
-        },
-        "API_HASH": {
-            "description": "Your API Hash From my.telegram.org ",
-            "value": ""
-        },
-        
-        "FORCE_SUB": {
-            "description": "Your force sub channel user name without [@] ",
-            "value": "",
-            "required": false 
-        },
-        "BOT_TOKEN": {
-            "description": "Your Bot Token From @BotFather",
-            "value": ""
-        },
-        "ADMIN": {
-            "description":"Add Your User ID multiple is use space to split"
-        },
-        
-        "DB_URL": {
-            "description": "Your Mongo DB URL Obtained From mongodb.com",
-            "value": ""
-        },
-        "DB_NAME":{ 
-            "description":"Your Mongo DB Database Name ",
-            "value": "SnowPro_Users",
-            "required": false
-        },
-        "START_PIC": {
-            "description": "Your Bot start cmd Pic from @Rkn_TelegraPH_Bot",
-            "value": "",
-            "required": false
-        }
+  "name": "Rkn-AutoCaptionBot",
+  "description": "Telegram Channel Auto Caption Bot with MongoDB and ForceSub support.",
+  "logo": "https://telegra.ph/file/21a8e96b45cd6ac4d3da6.jpg",
+  "keywords": ["AutoCaptionBot", "Telegram", "Mongo DB", "RknDeveloper"],
+  "repository": "https://github.com/RknDeveloper/Rkn-AutoCaptionBot",
+  "env": {
+    "API_ID": {
+      "description": "🔐 Your Telegram API ID — Get it from https://my.telegram.org OR use @ApiScrapManBot to fetch easily.",
+      "value": ""
     },
-    "buildpacks": [
-        {
-            "url": "heroku/python"
-        }
-    ]
+    "API_HASH": {
+      "description": "🧩 Your Telegram API Hash — Get it from https://my.telegram.org OR use @ApiScrapManBot.",
+      "value": ""
+    },
+    "BOT_TOKEN": {
+      "description": "🤖 Your Bot Token from @BotFather — Use /newbot to create one and paste token here.",
+      "value": ""
+    },
+    "ADMIN": {
+      "description": "👑 Your Telegram numeric User ID (not username). Example: 123456789. Do not add multiple admins — space-separated IDs are not supported.",
+      "value": ""
+    },
+    "DB_URL": {
+      "description": "🛢️ MongoDB connection string from https://cloud.mongodb.com — Required to store captions and users.",
+      "value": ""
+    },
+    "DB_NAME": {
+      "description": "📛 MongoDB database name — Can be any name, like AutoCaptionBot_DB.",
+      "value": "AutoCaption_V05_Bot",
+      "required": false
+    },
+    "FORCE_SUB": {
+      "description": "📢 (Optional) Username of your Telegram channel (without @) to force users to join before using the bot.",
+      "value": "",
+      "required": false
+    },
+    "DEFAULT_CAPTION": {
+      "description": "📌 Default caption format used by the bot when no custom caption is set for a channel. You can use {file_name} and {caption} as placeholders.",
+     "value": "<b><a href='https://t.me/Rkn_Botz'>{file_name} Main Telegram Channel: @Rkn_Bots_Updates</a></b>",
+     "required": false
+    },
+    "RKN_PIC": {
+      "description": "🖼️ (Optional) Direct image link to show on /start — Use @Rkn_Telegraph_Bot to generate a telegra.ph image link.",
+      "value": "",
+      "required": false
+    },
+    "PORT": {
+      "description": "🌐 Do not touch this. It is auto-set by the platform (like Heroku) to run your web server. Default is 8080.",
+      "value": "8080",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
 }

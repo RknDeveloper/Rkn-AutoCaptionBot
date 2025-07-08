@@ -1,10 +1,10 @@
 services:
   - type: web
-    plan: free
+    plan: free # Paid plan example - change this to your purchased plan (e.g., free, starter, standard, professional)
     name: Rkn-AutoCaptionBot
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python bot.py
+    startCommand: python3 bot.py
     repo: https://github.com/RknDeveloper/Rkn-AutoCaptionBot.git
     branch: main
     autoDeploy: false
@@ -21,7 +21,13 @@ services:
         sync: false
       - key: DB_URL
         sync: false
-      - key: START_PIC
+      - key: DEFAULT_CAPTION
+        value: "<b><a href='https://t.me/Rkn_Botz'>{file_name} Main Telegram Channel: @Rkn_Bots_Updates</a></b>"
+        sync: false
+      - key: RKN_PIC
         sync: false
       - key: ADMIN
+        sync: false
+      - key: PORT
+        value: "8080"
         sync: false
