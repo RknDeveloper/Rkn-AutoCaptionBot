@@ -19,23 +19,7 @@
 
 <details><summary>📌 Deploy to Koyeb </summary>
   
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](
-https://app.koyeb.com/deploy?type=git
-&repository=github.com/RknDeveloper/Rkn-AutoCaptionBot
-&branch=main
-&run_command=python%20bot.py
-&name=Rkn-AutoCaptionBot
-&env[BOT_TOKEN]
-&env[API_ID]
-&env[API_HASH]
-&env[ADMIN]
-&env[DB_NAME]
-&env[DB_URI]
-&env[FORCE_SUB]
-&env[RKN_PIC]
-&env[DEFAULT_CAPTION]=%3Cb%3E%3Ca%20href%3D%27https%3A%2F%2Ft.me%2FRkn_Botz%27%3E%7Bfile_name%7D%20Main%20Telegram%20Channel%3A%20%40Rkn_Bots_Updates%3C%2Fa%3E%3C%2Fb%3E
-&env[PORT]=8080
-)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/RknDeveloper/Rkn-AutoCaptionBot&branch=main&run_command=python%20bot.py&name=Rkn-AutoCaptionBot&env[BOT_TOKEN]=&env[API_ID]=&env[API_HASH]=&env[ADMIN]=&env[DB_NAME]=&env[DB_URI]=&env[FORCE_SUB]=&env[RKN_PIC]=&env[DEFAULT_CAPTION]=%3Cb%3E%3Ca%20href%3D%27https%3A%2F%2Ft.me%2FRkn_Botz%27%3E%7Bfile_name%7D%20Main%20Telegram%20Channel%3A%20%40Rkn_Bots_Updates%3C%2Fa%3E%3C%2Fb%3E&env[PORT]=8080)
 
 
 <details><summary>📌 Deploy to Render </summary>
