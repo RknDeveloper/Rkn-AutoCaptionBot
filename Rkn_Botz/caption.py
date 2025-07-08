@@ -106,9 +106,9 @@ async def start_cmd(client, message):
         caption=(
             f"<b>Hey, {message.from_user.mention} 👋\n\n"
             f"I'm an Auto Caption Bot.\n"
-            f>I auto-edit captions for videos, audio, documents posted in channels.\n\n"
-            f> /set_caption – Set your custom caption\n"
-            f> /delcaption – Delete and use default caption\n\n"
+            f"I auto-edit captions for videos, audio, documents posted in channels.\n\n"
+            f"/set_caption – Set your custom caption\n"
+            f"/delcaption – Delete and use default caption\n\n"
             f"Note: Commands only work in channels where I'm admin.</b>"
         ),
         reply_markup=types.InlineKeyboardMarkup([
